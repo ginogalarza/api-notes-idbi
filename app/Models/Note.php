@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Group extends Model
+class Note extends Model
 {
     use HasFactory;
 
-    protected $table = 'groups';
+    protected $table = 'notes';
 
-    protected $fillable = ['name'];
+    protected $fillable = ['title', 'description', 'img', 'group_users_id'];
 }
