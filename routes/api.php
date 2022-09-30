@@ -3,6 +3,9 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\GroupController;
+use App\Http\Controllers\GroupUsersController;
+use App\Http\Controllers\NoteController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -15,9 +18,10 @@ use App\Http\Controllers\AuthController;
 */
 
 Route::middleware('auth:sanctum')->group( function () {
-    // Route::get('/group', function () {
-        
-    // });
+    Route::get('/group', [GroupController::class, 'index']);
+    Route::post('/group-join', [GroupUsersController::class, 'store']);
+    Route::get('/note', [NoteController::class, 'index']);
+    Route::post('/note', [NoteController::class, 'store']);
 });
 
 Route::post('/register', [AuthController::class, 'register']);
