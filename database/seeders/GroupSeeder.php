@@ -17,8 +17,7 @@ class GroupSeeder extends Seeder
     {
         foreach($this->listGroups() as $group) {
             Group::create([
-                'name'        => $group['name'],
-                'description' => $group['description'],
+                'name'        => $group['name']
             ]);
         }
     }
@@ -26,26 +25,11 @@ class GroupSeeder extends Seeder
     public function listGroups()
     {
         return [
-            [
-                'name' => 'Musica', 
-                'description' => 'Comparte tus gustos musicales.'
-            ],
-            [
-                'name' => 'Videos', 
-                'description' => 'Comparte lista de videos.'
-            ],
-            [
-                'name' => 'Gatos', 
-                'description' => 'Gatos kawai para toda la familia.'
-            ],
-            [
-                'name' => 'Webs Recomendadas', 
-                'description' => 'Lista de paginas Recomendadas.'
-            ],
-            [
-                'name' => 'Tecnologia', 
-                'description' => 'Nuevas novedades en aparatos electronicos.'
-            ]
+            ['name' => 'Musica'],
+            ['name' => 'Videos'],
+            ['name' => 'Gatos'],
+            ['name' => 'Webs Recomendadas'],
+            ['name' => 'Tecnologia',]
         ];
     }
 }
