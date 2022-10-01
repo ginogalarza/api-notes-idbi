@@ -41,8 +41,17 @@ class AuthController extends Controller
 
         return response()->json([
             'token'        => $token,
-            'message'      => 'Correcto inicio de sesión.',
+            'message'      => 'Se inicio sesión correctamente.',
             'type_token'   => 'Bearer'
+        ]);
+    }
+
+    public function logout(Request $request)
+    {
+        $request->user()->currentAccessToken()->delete();
+
+        return response()->json([
+            'message' => 'Cerrando sesión.'
         ]);
     }
 }
