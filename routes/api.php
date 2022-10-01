@@ -20,8 +20,10 @@ use App\Http\Controllers\NoteController;
 Route::middleware('auth:sanctum')->group( function () {
     Route::get('/group', [GroupController::class, 'index']);
     Route::post('/group-join', [GroupUsersController::class, 'store']);
+    Route::get('/group/{group}', [GroupController::class, 'show']);
     Route::get('/note', [NoteController::class, 'index']);
-    Route::post('/note', [NoteController::class, 'store']);
+    Route::post('/group/{group}/note', [NoteController::class, 'store']);
+    Route::get('/logout', [AuthController::class, 'logout']);
 });
 
 Route::post('/register', [AuthController::class, 'register']);
